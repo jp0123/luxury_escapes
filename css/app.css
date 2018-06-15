@@ -34,6 +34,13 @@
 .vp-section {
     display:flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.vp-description {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .vp-content {
@@ -41,3 +48,10 @@
     justify-content: center;
     align-items: middle;
 }
+
+.vp-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
