@@ -1,0 +1,23 @@
+/** -- ** - - - - - SECTION 0: HERO - - - - - ** -- **/
+.hero {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+
+}
+
+#destination {
+    border-bottom: 4px #333 solid;
+    margin-right: 7.5rem;
+    margin-left: 7.5rem;
+}
+
+#destination-button {
+    margin-top: 1rem;
+}
