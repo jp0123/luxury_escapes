@@ -29,3 +29,15 @@
     width: 100vw;
     background-color: lightslategray;
 }
+
+/** -- ** - - - - - SECTION 2: VP - - - - - ** -- **/
+.vp-section {
+    display:flex;
+    align-items: center;
+}
+
+.vp-content {
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+}
