@@ -21,3 +21,11 @@
 #destination-button {
     margin-top: 1rem;
 }
+
+/** -- ** - - - - - SECTION 1: MAP - - - - - ** -- **/
+
+.map {
+    height: 50vh;
+    width: 100vw;
+    background-color: lightslategray;
+}
