@@ -1,22 +1,6 @@
-// function initMap() {
-//     const location = {lat: -34.397, lng: 150.644};
-//     const map = new google.maps.Map(document.getElementById('map'), {
-//     // center: {lat: -34.397, lng: 150.644},
-//     center: location,
-//     zoom: 2
-//     });
-//     const marker = new google.maps.Marker({position: location, map: map});
-//     let test = new google.maps.Marker({position: {lat: 0, lng: 0}, map: map});
-// }
-
-/**
- * ToDo:
- * 1. An array of location
- * 2. Plot each location to the map
- */
-
 function initMap() {
     
+    // Hardcoded locations; will be sourced from API soon.
     const locations = [
         ['Tokyo', 35.652832, 139.839478],
         ['Seoul', 37.532600, 127.024612],
