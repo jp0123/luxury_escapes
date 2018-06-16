@@ -63,7 +63,15 @@
         </div>
     </div>
 
-    <script src="./scripts/app.js"></script>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+            });
+        }
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUt6J8VPmo8evi9t3DS9JZ8gTTe5cj7_U&callback=initMap"
       async defer></script>
 
