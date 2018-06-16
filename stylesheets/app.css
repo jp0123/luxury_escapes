@@ -24,10 +24,15 @@
 
 /** -- ** - - - - - SECTION 1: MAP - - - - - ** -- **/
 
-#map {
+.map-container {
     height: 75vh;
-    width: 100vw;
-    background-color: lightslategray;
+    width: 100%;
+    background-color: lightgray;
+}
+
+#map {
+    height: 100%;
+    
 }
 
 
