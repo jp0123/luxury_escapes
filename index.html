@@ -33,7 +33,7 @@
             <div class="col-md-6">
                 <div class="row vp-section">
                     <div class="col-md-12 test">
-                        <h1>The Great Tokyo Adventure</h1>
+                        <h1 class="vp-title">The Great Tokyo Adventure</h1>
                         <p class="vp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa nostrum iusto repellendus maxime optio eos, minima ut animi labore consequatur dolore voluptate error officiis possimus eaque sapiente sed! Ducimus?</p>
                         
                         <p class="vp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa nostrum iusto repellendus maxime optio eos, minima ut animi labore consequatur dolore voluptate error officiis possimus eaque sapiente sed! Ducimus?</p>
@@ -65,8 +65,16 @@
     </div>
 
     <script type="text/javascript" src="scripts/app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUt6J8VPmo8evi9t3DS9JZ8gTTe5cj7_U&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbcpvPZ50bIWDyqIvnhDfn9j98obhUVFg&callback=initMap"
       async defer></script>
+    <script type="text/javascript">
+        
+        $('.vp-title').click(function() {
+            $('.vp-title').text('Test?');
+        });
+        
+        
+    </script>
 
 
 </body>

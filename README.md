@@ -20,7 +20,7 @@ Inspiration and designs were taken from <a href="https://luxuryescapes.com/au" t
 This is the first section of the website that the user will see. The background will be an image associated with the destination. 
 
 The underlined text (i.e. Tokyo) will change at a certain frequency. With the change in text, it will change the background.
-<img src= "resources/images/1.png">
+![wireframe](resources/readme/wireframe-1.png)
 
 ## Map & VP
 This section contains two parts:
@@ -29,8 +29,8 @@ This section contains two parts:
 
 There are two designs that I have drafted. 
 
-<img src= "resources/images/2.png">
+![wireframe](resources/readme/wireframe-2.png)
 
 ## Product details
 This section contains more and specific details regarding the offer. 
-<img src= "resources/images/3.png">
+![wireframe](resources/readme/wireframe-3.png)
