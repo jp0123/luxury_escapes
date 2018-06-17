@@ -29,28 +29,32 @@
 
     <!-- ** - - - - - SECTION 2: VP - - - - - ** -->
     <div class="vp">
-        <div class="row test">
-            <div class="col-md-6">
+        <div class="row vp-spacing vp-section">
+            <div class="col-md-6 col-sm-12 vp-spacing">
                 <div class="row vp-section">
-                    <div class="col-md-12 test">
+                    <div class="col-md-12">
                         <h1 class="vp-title">The Great Tokyo Adventure</h1>
-                        <p class="vp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa nostrum iusto repellendus maxime optio eos, minima ut animi labore consequatur dolore voluptate error officiis possimus eaque sapiente sed! Ducimus?</p>
+                        <p class="vp-description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa nostrum iusto repellendus maxime optio eos, minima ut animi labore consequatur dolore voluptate error officiis possimus eaque sapiente sed! Ducimus?
+                            
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa nostrum iusto repellendus maxime optio eos, minima ut animi labore consequatur dolore voluptate error officiis possimus eaque sapiente sed! Ducimus?
+                        </p>
                         
-                        <p class="vp-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa nostrum iusto repellendus maxime optio eos, minima ut animi labore consequatur dolore voluptate error officiis possimus eaque sapiente sed! Ducimus?</p>
+                        
                     </div>
                 </div>
 
                 <div class="row vp-section">
                     <div class="col-md-3">
-                        <p>Tokyo</p>
-                        <p>Japan</p>
+                        <p class="vp-city">Tokyo</p>
+                        <p class="vp-country">Japan</p>
                     </div>
                     <div class="col-md-3">
-                        <div class="vp-price">
-                            <p>$1049</p>
-                            <p>/room</p>
+                        <div class="vp-price-section">
+                            <p class="vp-price-1">$1049</p>
+                            <p class="vp-price-2">/room</p>
                         </div>
-                        <p>Park Hyatt Tokyo</p>
+                        <p class="vp-accommodation">Park Hyatt Tokyo</p>
                     </div>
                     <div class="col-md-3">
                         <a href="#" class="btn btn-primary more-button text-center" id="vp-button">View details</a>
@@ -58,8 +62,8 @@
                 </div>   
             </div>  
             
-            <div class="col-md-6">
-                <img src="http://via.placeholder.com/650x450" alt="destination image">
+            <div class="col-md-6 col-sm-12 vp-spacing">
+                <img class="vp-image" src="resources/images/1-1.jpg" alt="Image of Tokyo">
             </div>
         </div>
     </div>
@@ -67,15 +71,6 @@
     <script type="text/javascript" src="scripts/app.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbcpvPZ50bIWDyqIvnhDfn9j98obhUVFg&callback=initMap"
       async defer></script>
-    <script type="text/javascript">
-        
-        $('.vp-title').click(function() {
-            $('.vp-title').text('Test?');
-        });
-        
-        
-    </script>
-
 
 </body>
 </html>
