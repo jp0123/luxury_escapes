@@ -7,6 +7,10 @@ const destination_location = [];
 const destination_country = [];
 const destination_price = [];
 const destination_accommodation = [];
+const details_button = [];
+const details_button_p1 = "https://luxuryescapes.com/au/offer/";
+const details_button_p2 = [];
+const details_button_p3 = [];
 
 // Fetch LuxGroup API
 const api = fetch('https://api.luxgroup.com/api/public-offers')
@@ -27,6 +31,10 @@ const api = fetch('https://api.luxgroup.com/api/public-offers')
         destination_location.push(myJson.result[i].location_heading);
         destination_price.push(myJson.result[i].lowest_price_package.price);
         destination_accommodation.push(myJson.result[i].lowest_price_package.property.name);
+        details_button_p2.push(myJson.result[i].slug);
+        details_button_p3.push(myJson.result[i].id_salesforce_external);
+        let details_button_link = `${details_button_p1}${details_button_p2[i]}/${details_button_p3[i]}`;
+        details_button.push(details_button_link);
     }
     // Run the function after the promise has been fulfilled.
     initMap();
@@ -58,6 +66,7 @@ function initMap() {
       let destinationLocation = destination_location[i];
       let destinationPrice = destination_price[i];
       let destinationAccommodation = destination_accommodation[i];
+      let destinationDetailsButton = details_button[i];
 
       let infoWindow = new google.maps.InfoWindow({
           content: destinationTitle
@@ -66,7 +75,7 @@ function initMap() {
       marker.addListener('click', function() {
         infoWindow.open(map, marker);
 
-        markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation);
+        markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton);
         });
     }
   }
@@ -78,4 +87,5 @@ const markerOffer = (title, description, country, location, price, accommodation
   $('.vp-location').text(location);
   $('.vp-price-1').text(`$${price} AU`);
   $('.vp-accommodation').text(accommodation);
+  $('.vp-button').attr("href", detailsButton);
 }
