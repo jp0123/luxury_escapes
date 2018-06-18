@@ -83,6 +83,9 @@ function initMap() {
       let infoWindow = new google.maps.InfoWindow({
           content: destinationTitle
         });
+
+      // Run function to display first offer in the VP section
+      markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton, destinationImage);
       
       marker.addListener('click', function() {
         infoWindow.open(map, marker);
