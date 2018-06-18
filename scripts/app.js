@@ -114,7 +114,6 @@ $(document).ready(function() {
   const changeBackground = () => {
     
     setTimeout(function () {
-      // background-image: url("../resources/images/1-3.jpg");
       $('.hero').attr("background-image", `url(${destination_images[backgroundCounter]})`);
       $('#destination').text(destination_location[backgroundCounter]);
       backgroundCounter++;
