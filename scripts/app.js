@@ -1,6 +1,7 @@
 const api_latitude = [];
 const api_longitude = [];
 const destination_coordinates = [];
+const destination_content =[];
 
 // Fetch LuxGroup API
 const api = fetch('https://api.luxgroup.com/api/public-offers')
@@ -15,11 +16,10 @@ const api = fetch('https://api.luxgroup.com/api/public-offers')
         api_latitude.push(latitude);
         api_longitude.push(longitude);
         destination_coordinates.push([latitude, longitude]);
+        destination_content.push(myJson.result[i].name);
     }
-    
     // Run the function after the promise has been fulfilled.
     initMap();
-
   });
 
 function initMap() {
@@ -36,13 +36,13 @@ function initMap() {
     // Places a marker on each of the destinations listed in the API.
     for(let i = 0; i < destination_coordinates.length; i++) {
       
-      
       let marker = new google.maps.Marker({      
         position: {lat: destination_coordinates[i][0], lng: destination_coordinates[i][1]}, 
         map: map
       });
       
-      let destinationContent = 'Destination content!';
+      let destinationContent = destination_content[i];
+
       
       let infoWindow = new google.maps.InfoWindow({
           content: destinationContent
@@ -50,7 +50,6 @@ function initMap() {
       
       marker.addListener('click', function() {
         infoWindow.open(map, marker);
-        console.log('Info window should pop up!');
         });
     }
   }
