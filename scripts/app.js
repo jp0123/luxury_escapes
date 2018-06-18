@@ -35,9 +35,22 @@ function initMap() {
 
     // Places a marker on each of the destinations listed in the API.
     for(let i = 0; i < destination_coordinates.length; i++) {
+      
+      
       let marker = new google.maps.Marker({      
         position: {lat: destination_coordinates[i][0], lng: destination_coordinates[i][1]}, 
         map: map
       });
+      
+      let destinationContent = 'Destination content!';
+      
+      let infoWindow = new google.maps.InfoWindow({
+          content: destinationContent
+        });
+      
+      marker.addListener('click', function() {
+        infoWindow.open(map, marker);
+        console.log('Info window should pop up!');
+        });
     }
   }
