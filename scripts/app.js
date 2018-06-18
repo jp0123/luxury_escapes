@@ -76,6 +76,6 @@ const markerOffer = (title, description, country, location, price, accommodation
   $('.vp-description').text(description);
   $('.vp-country').text(country);
   $('.vp-location').text(location);
-  $('.vp-price-1').text(price);
+  $('.vp-price-1').text(`$${price} AU`);
   $('.vp-accommodation').text(accommodation);
 }
