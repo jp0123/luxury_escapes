@@ -1,7 +1,12 @@
 const api_latitude = [];
 const api_longitude = [];
 const destination_coordinates = [];
-const destination_content =[];
+const destination_title =[];
+const destination_description = [];
+const destination_location = [];
+const destination_country = [];
+const destination_price = [];
+const destination_accommodation = [];
 
 // Fetch LuxGroup API
 const api = fetch('https://api.luxgroup.com/api/public-offers')
@@ -16,7 +21,12 @@ const api = fetch('https://api.luxgroup.com/api/public-offers')
         api_latitude.push(latitude);
         api_longitude.push(longitude);
         destination_coordinates.push([latitude, longitude]);
-        destination_content.push(myJson.result[i].name);
+        destination_title.push(myJson.result[i].name);
+        destination_description.push(myJson.result[i].description);     
+        destination_country.push(myJson.result[i].location_subheading);
+        destination_location.push(myJson.result[i].location_heading);
+        destination_price.push(myJson.result[i].lowest_price_package.price);
+        destination_accommodation.push(myJson.result[i].lowest_price_package.property.name);
     }
     // Run the function after the promise has been fulfilled.
     initMap();
@@ -41,15 +51,32 @@ function initMap() {
         map: map
       });
       
-      let destinationContent = destination_content[i];
+      // VP elements
+      let destinationTitle = destination_title[i];
+      let destinationDescription = destination_description[i];
+      let destinationCountry = destination_country[i];
+      let destinationLocation = destination_location[i];
+      let destinationPrice = destination_price[i];
+      let destinationAccommodation = destination_accommodation[i];
 
-      
       let infoWindow = new google.maps.InfoWindow({
-          content: destinationContent
+          content: destinationTitle
         });
       
       marker.addListener('click', function() {
         infoWindow.open(map, marker);
+
+        markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation);
         });
     }
   }
+
+const markerOffer = (title, description, country, location, price, accommodation) => {
+  $('.vp-title').text(title);
+  $('.vp-description').text(description);
+  $('.vp-country').text(country);
+  $('.vp-location').text(location);
+  $('.vp-price-1').text(price);
+  $('.vp-accommodation').text(accommodation);
+}
+
