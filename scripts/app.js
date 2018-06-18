@@ -2,6 +2,7 @@ const api_latitude = [];
 const api_longitude = [];
 const destination_coordinates = [];
 
+// Fetch LuxGroup API
 const api = fetch('https://api.luxgroup.com/api/public-offers')
   .then(function(response) {
     return response.json();
