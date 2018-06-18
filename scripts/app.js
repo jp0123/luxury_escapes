@@ -100,5 +100,5 @@ const markerOffer = (title, description, country, location, price, accommodation
   $('.vp-price-1').text(`$${price} AU`);
   $('.vp-accommodation').text(accommodation);
   $('.vp-button').attr('href', detailsButton);
-  $('#offer-image').attr('src', destinationImage);
+  $('.vp-image').attr('src', destinationImage);
 }
