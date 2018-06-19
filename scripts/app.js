@@ -112,7 +112,7 @@ $(document).ready(function() {
       }
 
       // Run function to display first offer in the VP section
-      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0], destinationVideo[0], destinationVideoPoster[0]);
+      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0], destination_video[0], destination_video_poster[0]);
 
     }
   
