@@ -115,3 +115,20 @@
     padding: 0;
 }
 
+/** -- ** - - - - - SECTION 2: OFFER DETAILS - - - - - ** -- **/
+.offer-details {
+    width: 100%;
+}
+
+.offer-details-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.destination-video {
+    height: 720px;
+    width: 100%;
+}
+
+

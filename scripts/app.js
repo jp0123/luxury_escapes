@@ -21,6 +21,11 @@ $(document).ready(function() {
   const destination_images = [];
   const destination_image_p1 = "https://res.cloudinary.com/lux-group/image/upload/f_auto,fl_progressive,q_auto:eco,c_fill,g_auto,ar_16:9/"
   const destination_image_p2 = [];
+  // Video
+  const destination_video = [];
+  const destination_video_url = "https://res.cloudinary.com/lux-group/video/upload/vc_auto,q_70/" 
+  const destination_video_poster = [];
+  const destination_video_poster_url = "https://res.cloudinary.com/lux-group/video/upload/so_auto/"
 
   // Fetch LuxGroup API
   const api = fetch('https://api.luxgroup.com/api/public-offers')
@@ -52,6 +57,11 @@ $(document).ready(function() {
           destination_image_p2.push(myJson.result[i].images[0].id_cloudinary_external);
           let destination_image = `${destination_image_p1}${destination_image_p2[i]}`
           destination_images.push(destination_image);
+          // Video
+          let destination_video_link = `${destination_video_url}${myJson.result[i].video_cloudinary_id}.mp4`
+          destination_video.push(destination_video_link);
+          let destination_video_poster_link = `${destination_video_poster_url}${myJson.result[i].video_cloudinary_id}.jpg`
+          destination_video_poster.push(destination_video_poster_link);
       }
       // Run the function after the promise has been fulfilled.
       initMap();
@@ -83,6 +93,8 @@ $(document).ready(function() {
         let destinationDetailsButton = details_link[i];
         let destinationImage = destination_images[i];
         let destinationLink = details_link[i];
+        let destinationVideo = destination_video[i];
+        let destinationVideoPoster = destination_video_poster[i];
         // Google Maps InfoWindow  
         let infoWindowContent = '<a href="'+ `${destinationLink}` +'" target="_blank">'+`${destinationTitle}`+'</a>'
 
@@ -95,17 +107,17 @@ $(document).ready(function() {
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
 
-          markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton, destinationImage);
+          markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton, destinationImage, destinationVideo, destinationVideoPoster);
           });
       }
 
       // Run function to display first offer in the VP section
-      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0]);
+      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0], destinationVideo[0], destinationVideoPoster[0]);
 
     }
   
   // VP section | Updates the content based on the selected marker
-  const markerOffer = (title, description, country, location, price, accommodation, detailsButton, destinationImage) => {
+  const markerOffer = (title, description, country, location, price, accommodation, detailsButton, destinationImage, destinationVideo, destinationVideoPoster) => {
     $('.vp-title').text(title);
     $('.vp-description').text(description);
     $('.vp-country').text(country);
@@ -114,6 +126,8 @@ $(document).ready(function() {
     $('.vp-accommodation').text(accommodation);
     $('.vp-button').attr('href', detailsButton);
     $('.vp-image').attr('src', destinationImage);
+    $('.destination-video').attr("src", destinationVideo);
+    $('.destination-video').attr("poster", destinationVideoPoster);
   } 
 
   // Hero section | Updates the background image based on all the offers
