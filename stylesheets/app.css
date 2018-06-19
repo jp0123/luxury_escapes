@@ -9,6 +9,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; 
+    transition: all 1.5s ease;
 }
 
 .hero-content {
