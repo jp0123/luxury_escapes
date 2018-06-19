@@ -13,10 +13,10 @@ $(document).ready(function() {
   const destination_price = [];
   const destination_accommodation = [];
   // Button
-  const details_button = [];
-  const details_button_p1 = "https://luxuryescapes.com/au/offer/";
-  const details_button_p2 = [];
-  const details_button_p3 = [];
+  const details_link = [];
+  const details_link_p1 = "https://luxuryescapes.com/au/offer/";
+  const details_link_p2 = [];
+  const details_link_p3 = [];
   // Image
   const destination_images = [];
   const destination_image_p1 = "https://res.cloudinary.com/lux-group/image/upload/f_auto,fl_progressive,q_auto:eco,c_fill,g_auto,ar_16:9/"
@@ -44,10 +44,10 @@ $(document).ready(function() {
           destination_price.push(myJson.result[i].lowest_price_package.price);
           destination_accommodation.push(myJson.result[i].lowest_price_package.property.name);
           // Button
-          details_button_p2.push(myJson.result[i].slug);
-          details_button_p3.push(myJson.result[i].id_salesforce_external);
-          let details_button_link = `${details_button_p1}${details_button_p2[i]}/${details_button_p3[i]}`;
-          details_button.push(details_button_link);
+          details_link_p2.push(myJson.result[i].slug);
+          details_link_p3.push(myJson.result[i].id_salesforce_external);
+          let details_offer = `${details_link_p1}${details_link_p2[i]}/${details_link_p3[i]}`;
+          details_link.push(details_offer);
           // Images
           destination_image_p2.push(myJson.result[i].images[0].id_cloudinary_external);
           let destination_image = `${destination_image_p1}${destination_image_p2[i]}`
@@ -80,15 +80,18 @@ $(document).ready(function() {
         let destinationLocation = destination_location[i];
         let destinationPrice = destination_price[i];
         let destinationAccommodation = destination_accommodation[i];
-        let destinationDetailsButton = details_button[i];
+        let destinationDetailsButton = details_link[i];
         let destinationImage = destination_images[i];
+        let destinationLink = details_link[i];
+        // Google Maps InfoWindow  
+        let infoWindowContent = '<a href="'+ `${detailsButton}` +'" target="_blank">'+`${destinationTitle}`+'</a>'
 
         let infoWindow = new google.maps.InfoWindow({
-            content: destinationTitle
+            content: infoWindowContent
           });
 
         // Run function to display first offer in the VP section
-        markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_button[0], destination_images[0]);
+        markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0]);
         
         // Event listener => Marker
         // Change VP section to reflect marker destination
