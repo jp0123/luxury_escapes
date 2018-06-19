@@ -89,9 +89,6 @@ $(document).ready(function() {
         let infoWindow = new google.maps.InfoWindow({
             content: infoWindowContent
           });
-
-        // Run function to display first offer in the VP section
-        markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0]);
         
         // Event listener => Marker
         // Change VP section to reflect marker destination
@@ -101,8 +98,13 @@ $(document).ready(function() {
           markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton, destinationImage);
           });
       }
-    }
 
+      // Run function to display first offer in the VP section
+      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0]);
+
+    }
+  
+  // VP section | Updates the content based on the selected marker
   const markerOffer = (title, description, country, location, price, accommodation, detailsButton, destinationImage) => {
     $('.vp-title').text(title);
     $('.vp-description').text(description);
@@ -114,8 +116,8 @@ $(document).ready(function() {
     $('.vp-image').attr('src', destinationImage);
   } 
 
+  // Hero section | Updates the background image based on all the offers
   const changeBackground = () => {
-    
     setTimeout(function () {
       $('.hero').css('background-image', `url(${destination_images[backgroundCounter]})`)
       $('#destination').text(destination_location[backgroundCounter]);
