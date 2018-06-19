@@ -84,7 +84,7 @@ $(document).ready(function() {
         let destinationImage = destination_images[i];
         let destinationLink = details_link[i];
         // Google Maps InfoWindow  
-        let infoWindowContent = '<a href="'+ `${detailsButton}` +'" target="_blank">'+`${destinationTitle}`+'</a>'
+        let infoWindowContent = '<a href="'+ `${destinationLink}` +'" target="_blank">'+`${destinationTitle}`+'</a>'
 
         let infoWindow = new google.maps.InfoWindow({
             content: infoWindowContent
