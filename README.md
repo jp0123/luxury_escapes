@@ -10,10 +10,10 @@ Table of Contents
     * [Optional features](#optional-features)
 * [Wireframes](#wireframes)
     * [Hero](#hero)
-    * [Map & VP](#map-&-vp)
+    * [Map & VP](#map-and-vp)
     * [Product details](#product-details)
 * [Notes](#notes)
-    * [Documentation & Helpful resources](#documentation-&-helpful-resources)
+    * [Documentation & Helpful resources](#documentation-and-helpful-resources)
     * [Tools](#tools)
     * [Future](#future)
 
@@ -54,7 +54,7 @@ This section contains more and specific details regarding the offer.
 ![wireframe](resources/readme/wireframe-3.png)
 
 # Notes
-## Documentation & helpful resources
+## Documentation and helpful resources
 "If I have seen further it is by standing on the shoulders of Giants."
 
 This project could not have been done just by myself. These links were particularly helpful. More were used.
