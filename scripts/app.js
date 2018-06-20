@@ -160,16 +160,18 @@ $(document).ready(function() {
     // Reviews | Show reviews if they are available
     if((destinationReview[0] === no_review) || (destinationReview[0] === no_review) || (destinationReview[0] === no_review)) {
       $('#offer-reviews').hide();
+      $('#offer-reviews-header').hide();
     } else {
+      $('#offer-reviews-header').show();
+      $('#offer-reviews-header').text(`Reviews on: ${accommodation}`);
       $('#offer-reviews').show();
       $('#review-1').text(destinationReview[0]);
       $('#review-2').text(destinationReview[1]);
       $('#review-3').text(destinationReview[2]); 
-      $('#review-source-1').text(destinationReviewSource[0]);
-      $('#review-source-2').text(destinationReviewSource[1]);
-      $('#review-source-3').text(destinationReviewSource[2]); 
-    }
-  
+      $('#review-source-1').text('- ' + destinationReviewSource[0]);
+      $('#review-source-2').text('- ' + destinationReviewSource[1]);
+      $('#review-source-3').text('- ' + destinationReviewSource[2]); 
+    }  
   } 
 
   // Hero section | Updates the background image based on all the offers
