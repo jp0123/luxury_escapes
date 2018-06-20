@@ -1,6 +1,6 @@
 # Luxury Escapes
 
-Live website: https://jp0123.github.io/luxury_escapes/
+Live website: <a href="https://jp0123.github.io/luxury_escapes/" target="_blank">jp0123.github.io/luxury_escapes/</a>
 
 Table of Contents
 =================
