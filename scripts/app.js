@@ -69,6 +69,7 @@ $(document).ready(function() {
           destination_video_poster.push(destination_video_poster_link);
           // Reviews
           let reviews_present = myJson.result[i].lowest_price_package.property.reviews
+            // Not all offers have reviews. If reviews exist, push and use them, otherwise default text will be pushed (that will not be shown).
           if(typeof(reviews_present) === 'object') {
             let reviews = [];
             let sources = [];
@@ -91,6 +92,7 @@ $(document).ready(function() {
       // Center of Google Maps (Sydney)
       const location = {lat: -34.397, lng: 150.644};
 
+      // Google Map
       const map = new google.maps.Map(document.getElementById('map'), {
           center: location,
           zoom: 2
@@ -122,6 +124,7 @@ $(document).ready(function() {
         // Google Maps InfoWindow  
         let infoWindowContent = '<a href="'+ `${destinationLink}` +'" target="_blank">'+`${destinationTitle}`+'</a>'
 
+        // Transfers content to the markers
         let infoWindow = new google.maps.InfoWindow({
             content: infoWindowContent
           });

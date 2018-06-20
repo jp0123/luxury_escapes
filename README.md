@@ -1,5 +1,6 @@
 # Luxury Escapes
 
+Live website: https://jp0123.github.io/luxury_escapes/
 
 Table of Contents
 =================
@@ -19,7 +20,7 @@ Table of Contents
 
 
 # Overview
-To create a web page with a map showing pins for each offer on the first page of <a href="https://luxuryescapes.com/au" target="_blank">Luxury Escapes</a>.
+To create a <a href="https://jp0123.github.io/luxury_escapes/" target="_blank">web page</a> with a map showing pins for each offer on the first page of <a href="https://luxuryescapes.com/au" target="_blank">Luxury Escapes</a>.
 
 Luxury Escapes public <a href="https://api.luxgroup.com/api/public-offers" target="_blank">API</a> was used.
 
