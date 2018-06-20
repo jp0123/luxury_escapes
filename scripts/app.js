@@ -29,6 +29,8 @@ $(document).ready(function() {
   // Reviews
   const destination_review = [];
   const no_review = 'No review'
+  const destination_review_source = [];
+  const no_source = 'No source';
 
   // Fetch LuxGroup API
   const api = fetch('https://api.luxgroup.com/api/public-offers')
@@ -67,22 +69,22 @@ $(document).ready(function() {
           destination_video_poster.push(destination_video_poster_link);
           // Reviews
           let reviews_present = myJson.result[i].lowest_price_package.property.reviews
-          console.log(reviews_present);
           if(typeof(reviews_present) === 'object') {
             let reviews = [];
+            let sources = [];
             for(let j = 0; j < reviews_present.length; j++ ) {
               reviews.push(reviews_present[j].content)
+              sources.push(reviews_present[j].source)
             }
             destination_review.push(reviews);
-          } else {
+            destination_review_source.push(sources);
+            } else {
             destination_review.push([no_review, no_review, no_review]);
+            destination_review_source.push([no_source, no_source, no_source]);
           }
-
-           
       }
       // Run the function after the promise has been fulfilled.
       initMap();
-
     });
 
   function initMap() {
@@ -114,8 +116,8 @@ $(document).ready(function() {
         let destinationLink = details_link[i];
         let destinationVideo = destination_video[i];
         let destinationVideoPoster = destination_video_poster[i];
-
         let destinationReview = destination_review[i];
+        let destinationReviewSource = destination_review_source[i];
 
         // Google Maps InfoWindow  
         let infoWindowContent = '<a href="'+ `${destinationLink}` +'" target="_blank">'+`${destinationTitle}`+'</a>'
@@ -128,17 +130,17 @@ $(document).ready(function() {
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
           // Change VP section to reflect marker destination
-          markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton, destinationImage, destinationVideo, destinationVideoPoster, destinationReview);
+          markerOffer(destinationTitle, destinationDescription, destinationCountry, destinationLocation, destinationPrice, destinationAccommodation, destinationDetailsButton, destinationImage, destinationVideo, destinationVideoPoster, destinationReview, destinationReviewSource);
           });
       }
 
       // Run function to display first offer in the VP section
-      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0], destination_video[0], destination_video_poster[0], destination_review[0]);
+      markerOffer(destination_title[0], destination_description[0], destination_country[0], destination_location[0], destination_price[0], destination_accommodation[0], details_link[0], destination_images[0], destination_video[0], destination_video_poster[0], destination_review[0], destination_review_source[0]);
 
     }
   
   // VP section | Updates the content based on the selected marker
-  const markerOffer = (title, description, country, location, price, accommodation, detailsButton, destinationImage, destinationVideo, destinationVideoPoster, destinationReview) => {
+  const markerOffer = (title, description, country, location, price, accommodation, detailsButton, destinationImage, destinationVideo, destinationVideoPoster, destinationReview, destinationReviewSource) => {
     $('.vp-title').text(title);
     $('.vp-description').text(description);
     $('.vp-country').text(country);
@@ -163,6 +165,9 @@ $(document).ready(function() {
       $('#review-1').text(destinationReview[0]);
       $('#review-2').text(destinationReview[1]);
       $('#review-3').text(destinationReview[2]); 
+      $('#review-source-1').text(destinationReviewSource[0]);
+      $('#review-source-2').text(destinationReviewSource[1]);
+      $('#review-source-3').text(destinationReviewSource[2]); 
     }
   
   } 

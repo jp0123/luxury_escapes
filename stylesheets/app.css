@@ -108,16 +108,16 @@
     font-weight: 300;
 }
 
-
 .vp-image {
     height: 100%;
     width: 100%;
     padding: 0;
 }
 
-/** -- ** - - - - - SECTION 2: OFFER DETAILS - - - - - ** -- **/
+/** -- ** - - - - - SECTION 3: OFFER DETAILS - - - - - ** -- **/
 .offer-details {
     width: 100%;
+    margin-top: 2.5rem;
 }
 
 .offer-details-section {
@@ -129,6 +129,11 @@
 .destination-video {
     height: 720px;
     width: 100%;
+}
+
+.reviews {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 
