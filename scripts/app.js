@@ -126,8 +126,16 @@ $(document).ready(function() {
     $('.vp-accommodation').text(accommodation);
     $('.vp-button').attr('href', detailsButton);
     $('.vp-image').attr('src', destinationImage);
-    $('.destination-video').attr("src", destinationVideo);
-    $('.destination-video').attr("poster", destinationVideoPoster);
+    // Shows video if the offer contains one; else hide the video
+    if(destinationVideo.indexOf('null') === -1 ) {
+      $('.destination-video').show();
+      $('.destination-video').attr("src", destinationVideo);
+      $('.destination-video').attr("poster", destinationVideoPoster);
+      console.log('Video detected');
+    } else {
+      console.log('Video not detected');
+      $('.destination-video').hide();
+    }
   } 
 
   // Hero section | Updates the background image based on all the offers
@@ -144,5 +152,4 @@ $(document).ready(function() {
 
   // Periodically change the background image of the Hero section
   changeBackground();
-
 });
