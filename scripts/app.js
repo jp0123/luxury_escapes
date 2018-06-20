@@ -28,6 +28,7 @@ $(document).ready(function() {
   const destination_video_poster_url = "https://res.cloudinary.com/lux-group/video/upload/so_auto/"
   // Reviews
   const destination_review = [];
+  const no_review = 'No review'
 
   // Fetch LuxGroup API
   const api = fetch('https://api.luxgroup.com/api/public-offers')
@@ -65,9 +66,8 @@ $(document).ready(function() {
           let destination_video_poster_link = `${destination_video_poster_url}${myJson.result[i].video_cloudinary_id}.jpg`
           destination_video_poster.push(destination_video_poster_link);
           // Reviews
-          
-          
           let reviews_present = myJson.result[i].lowest_price_package.property.reviews
+          console.log(reviews_present);
           if(typeof(reviews_present) === 'object') {
             let reviews = [];
             for(let j = 0; j < reviews_present.length; j++ ) {
@@ -75,7 +75,7 @@ $(document).ready(function() {
             }
             destination_review.push(reviews);
           } else {
-            destination_review.push(['No review', 'No review', 'No review']);
+            destination_review.push([no_review, no_review, no_review]);
           }
 
            
@@ -155,13 +155,16 @@ $(document).ready(function() {
     } else {
       $('.destination-video').hide();
     }
-    // Review
-
-    // Write conditional for cases where reviews aren't present
-    $('#review-1').text(destinationReview[0]);
-    $('#review-2').text(destinationReview[1]);
-    $('#review-3').text(destinationReview[2]); 
-
+    // Reviews | Show reviews if they are available
+    if((destinationReview[0] === no_review) || (destinationReview[0] === no_review) || (destinationReview[0] === no_review)) {
+      $('#offer-reviews').hide();
+    } else {
+      $('#offer-reviews').show();
+      $('#review-1').text(destinationReview[0]);
+      $('#review-2').text(destinationReview[1]);
+      $('#review-3').text(destinationReview[2]); 
+    }
+  
   } 
 
   // Hero section | Updates the background image based on all the offers
@@ -179,11 +182,3 @@ $(document).ready(function() {
   // Hero section | Periodically change the background image
   changeBackground();
 });
-
-/** 
- * ToDo:
-
- * 2. Create a function similar to markerOffer, but it check the offer instead
- *    Then create another function that increments the arguments by one
- * Then run markerOffer again
- */
