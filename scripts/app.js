@@ -36,17 +36,32 @@ $(document).ready(function() {
   const no_source = "No source";
 
   // Fetch LuxGroup API
-  const api = fetch("https://api.luxgroup.com/api/public-offers")
+  fetch("https://api.luxgroup.com/api/public-offers")
     .then(function(response) {
       return response.json();
     })
     .then(function(myJson) {
       let destinations_array = myJson.result.length;
+
       for (let i = 0; i < destinations_array; i++) {
         // Google Maps
-        let latitude = myJson.result[i].lowest_price_package.property.latitude;
-        let longitude =
-          myJson.result[i].lowest_price_package.property.longitude;
+        let latitude;
+        let longitude;
+
+        // Latitude and Longitude | Property or Tour => API nests latitude and longitude in a property or tour key
+        // Latitude
+        if (!myJson.result[i].lowest_price_package.property) {
+          latitude = myJson.result[i].lowest_price_package.tour.latitude;
+        } else {
+          latitude = myJson.result[i].lowest_price_package.property.latitude;
+        }
+        // Longitude
+        if (!myJson.result[i].lowest_price_package.property) {
+          longitude = myJson.result[i].lowest_price_package.tour.longitude;
+        } else {
+          longitude = myJson.result[i].lowest_price_package.property.longitude;
+        }
+
         api_latitude.push(latitude);
         api_longitude.push(longitude);
         // VP section
@@ -56,9 +71,18 @@ $(document).ready(function() {
         destination_country.push(myJson.result[i].location_subheading);
         destination_location.push(myJson.result[i].location_heading);
         destination_price.push(myJson.result[i].lowest_price_package.price);
-        destination_accommodation.push(
-          myJson.result[i].lowest_price_package.property.name
-        );
+
+        // Name | Property or Tour.
+        if (!myJson.result[i].lowest_price_package.property) {
+          destination_accommodation.push(
+            myJson.result[i].lowest_price_package.tour.name
+          );
+        } else {
+          destination_accommodation.push(
+            myJson.result[i].lowest_price_package.property.name
+          );
+        }
+
         // Button
         details_link_p2.push(myJson.result[i].slug);
         details_link_p3.push(myJson.result[i].id_salesforce_external);
@@ -83,9 +107,15 @@ $(document).ready(function() {
           myJson.result[i].video_cloudinary_id
         }.jpg`;
         destination_video_poster.push(destination_video_poster_link);
-        // Reviews
-        let reviews_present =
-          myJson.result[i].lowest_price_package.property.reviews;
+
+        // Reviews | Property or Tour
+        if (!myJson.result[i].lowest_price_package.property) {
+          reviews_present = myJson.result[i].lowest_price_package.tour.reviews;
+        } else {
+          reviews_present =
+            myJson.result[i].lowest_price_package.property.reviews;
+        }
+
         // Not all offers have reviews. If reviews exist, push and use them, otherwise default text will be pushed (that will not be shown).
         if (typeof reviews_present === "object") {
           let reviews = [];
@@ -105,7 +135,6 @@ $(document).ready(function() {
       initMap();
     })
     .catch(error => {
-      console.log("Error!!");
       console.log(error);
     });
 
