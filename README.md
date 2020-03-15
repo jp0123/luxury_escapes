@@ -2,6 +2,8 @@
 
 Live website: <a href="https://jp0123.github.io/luxury_escapes/" target="_blank">Luxury Escapes</a>
 
+NB: Please note that this website is not actively maintained.
+
 Table of Contents
 =================
 
